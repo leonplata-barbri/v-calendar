@@ -1,3 +1,7 @@
+# WARNING
+This repository was forked from https://github.com/nathanreyes/v-calendar to add patches
+for specific scenarios and make experiments, please consider to check the original repository first.
+
 # VCalendar Plugin for Vue 3
 
 A Vue plugin for for attributed calendars date pickers using Vue 3, Typescript and Rollup.

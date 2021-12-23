@@ -1,9 +1,12 @@
 {
-  "name": "v-calendar",
+  "name": "@cobre-forked/v-calendar",
   "version": "3.0.0-alpha.6",
   "private": false,
   "description": "A clean and extendable plugin for building simple attributed calendars in Vue.js.",
   "author": "Nathan Reyes <nathanreyes@me.com>",
+  "contributors": [
+    "Leon Plata <pcg.leon@outlook.com>"
+  ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "unpkg": "lib/vcalendar.min.js",
@@ -24,7 +27,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nathanreyes/v-calendar"
+    "url": "https://github.com/leonplata-barbri/v-calendar"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
