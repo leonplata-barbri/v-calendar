@@ -12,20 +12,26 @@ export default {
   mixins: [childMixin, slotMixin],
   inheritAttrs: false,
   render() {
+    const renderTitle = () => {
+      return h(
+        'div',
+        {
+          class: 'vc-title',
+          ...this.navPopoverEvents,
+          role: 'button',
+          tabindex: '0',
+          onKeydown: this.handleDropdownKeydown,
+        },
+        [this.safeSlot('header-title', this.page, this.page.title)],
+      );
+    };
+
     // Header
     const header =
-      this.safeSlot('header', this.page) ||
-      // Default header
+      this.safeSlot('header', { ...this.page, renderTitle }) ||
       h('div', { class: `vc-header align-${this.titlePosition}` }, [
         // Header title
-        h(
-          'div',
-          {
-            class: 'vc-title',
-            ...this.navPopoverEvents,
-          },
-          [this.safeSlot('header-title', this.page, this.page.title)],
-        ),
+        renderTitle(),
       ]);
 
     // Weekday cells
@@ -196,6 +202,17 @@ export default {
       return this.locale
         .getWeekdayDates()
         .map(d => this.format(d, this.masks.weekdays));
+    },
+  },
+  methods: {
+    handleDropdownKeydown(event) {
+      switch (event.key) {
+        case 'Enter':
+        case ' ':
+        case 'Spacebar':
+          event.preventDefault();
+          event.currentTarget.click();
+      }
     },
   },
 };
